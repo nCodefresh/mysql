@@ -55,9 +55,9 @@ RUN sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/mysql.conf.d/mysqld.cnf \
 
 VOLUME /var/lib/mysql
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY 8.0/docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
-ENTRYPOINT ["8.0/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 3306
 CMD ["mysqld"]
